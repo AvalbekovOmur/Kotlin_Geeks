@@ -13,7 +13,6 @@ class TaskAdapter(private val context: Context) : RecyclerView.Adapter<TaskAdapt
     private var onItemClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener {
-        fun onItemClick(task: Task)
         fun onItemDelete(task: Task)
     }
 
