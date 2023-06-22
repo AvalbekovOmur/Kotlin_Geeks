@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
+import com.example.kotlin_geeks.App
 import com.example.kotlin_geeks.R
 import com.example.kotlin_geeks.databinding.FragmentTaskBinding
 import com.example.kotlin_geeks.model.Task
@@ -35,7 +36,8 @@ class TaskFragment : Fragment() {
             title = binding.EditTextTitle.text.toString(),
             description = binding.EditTextDescription.text.toString()
         )
-        setFragmentResult(TASK_REQUEST, bundleOf(TASK_KEY to data))
+
+        App.db.taskDao().insert(data)
         findNavController().navigateUp()
     }
     companion object {

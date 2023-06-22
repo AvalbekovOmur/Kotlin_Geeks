@@ -11,7 +11,6 @@ class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
 
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
