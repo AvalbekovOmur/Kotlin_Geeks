@@ -5,6 +5,10 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
+    <include
+        android:id="@id/auth_navigation"
+        app:graph="@navigation/auth_navigation" />
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.kotlin_geeks.ui.home.HomeFragment"
@@ -35,14 +39,26 @@
         android:name="com.example.kotlin_geeks.ui.onboarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
-    <fragment
-        android:id="@+id/acceptFragment"
-        android:name="com.example.kotlin_geeks.ui.auth.accept.AcceptFragment"
-        android:label="fragment_accept"
-        tools:layout="@layout/fragment_accept" />
-    <fragment
-        android:id="@+id/phoneFragment"
-        android:name="com.example.kotlin_geeks.ui.auth.phone.PhoneFragment"
-        android:label="fragment_phone"
-        tools:layout="@layout/fragment_phone" />
+
+    <action
+        android:id="@+id/action_to_auth"
+        app:destination="@id/auth_navigation"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/auth_navigation"
+        />
+
+    <action
+        android:id="@+id/action_to_mobile_navigation"
+        app:destination="@id/navigation_home"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/mobile_navigation"
+        />
+
+    <action
+        android:id="@+id/action_to_onBoarding"
+        app:destination="@id/onBoardingFragment"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/onBoardingFragment"
+        />
+
 </navigation>

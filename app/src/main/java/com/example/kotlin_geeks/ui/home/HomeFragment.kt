@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
+import android.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -39,16 +39,15 @@ class HomeFragment : Fragment() {
         binding.recyclerView.adapter = adapter
     }
 
+    private fun addTasks() {
+        val list = App.db.taskDao().getAll()
+        adapter.setTasks(list)
+    }
+
     private fun navigateToTaskFragment() {
         binding.fub.setOnClickListener {
             findNavController().navigate(R.id.taskFragment)
         }
-    }
-
-
-    private fun addTasks() {
-        val list = App.db.taskDao().getAll()
-        adapter.setTasks(list)
     }
 
     private fun onLongClick(task: Task) {

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_geeks.databinding.ItemTaskBinding
 import com.example.kotlin_geeks.model.Task
 

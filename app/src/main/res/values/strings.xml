@@ -10,8 +10,11 @@
     <string name="save">Save</string>
     <string name="profile">Profile</string>
     <string name="write_your_name">Write your name</string>
-    <string name="yes" />
-    <string name="no" />
-    <string name="delete_message" />
-    <string name="update">\n\n</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="delete_message">Are you sure to delete this task?</string>
+    <string name="update">update</string>
+    <string name="send_code">Send code</string>
+    <string name="verify">verify</string>
+    <string name="enter_the_sms_code">Enter the sms code</string>
 </resources>
