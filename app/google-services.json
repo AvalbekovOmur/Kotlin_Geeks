@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "280666593727",
+    "project_id": "kotlin-geeks",
+    "storage_bucket": "kotlin-geeks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280666593727:android:66f7c756ba2ed843b4690a",
+        "android_client_info": {
+          "package_name": "com.example.kotlin_geeks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280666593727-g32e18vuaok6a9f1qt4nek7q0fds9hgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4Sdo1E28y7wh_OZCQ74Fxyyvu9_nraXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280666593727-g32e18vuaok6a9f1qt4nek7q0fds9hgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

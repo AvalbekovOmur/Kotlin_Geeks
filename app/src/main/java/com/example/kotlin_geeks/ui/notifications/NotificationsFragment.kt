@@ -10,7 +10,6 @@ import com.example.kotlin_geeks.databinding.FragmentNotificationsBinding
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(

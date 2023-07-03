@@ -14,7 +14,7 @@ import com.example.kotlin_geeks.databinding.FragmentProfileBinding
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
-    private val pref : Pref by lazy {
+    private val pref: Pref by lazy {
         Pref(this.requireContext())
     }
 
@@ -22,7 +22,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentProfileBinding.inflate(inflater,container,false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -35,24 +35,25 @@ class ProfileFragment : Fragment() {
 
     private fun saveName() {
         binding.editTextName.setText(pref.getName())
-        binding.btnSave.setOnClickListener{
+        binding.btnSave.setOnClickListener {
             pref.saveUserName(binding.editTextName.text.toString())
         }
     }
 
     private fun saveImage() {
         Glide.with(binding.ivImage).load(pref.getImage()).into(binding.ivImage)
-        binding.ivImage.setOnClickListener{
+        binding.ivImage.setOnClickListener {
             chooseImage.launch("image/*")
         }
     }
 
-    private val chooseImage = registerForActivityResult(ActivityResultContracts.GetContent()) {img ->
-        if (img != null) {
-            pref.saveImage(img.toString())
-            Glide.with(requireContext()).load(img).apply(RequestOptions.circleCropTransform()).into(binding.ivImage)
+    private val chooseImage =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { img ->
+            if (img != null) {
+                pref.saveImage(img.toString())
+                Glide.with(requireContext()).load(img)
+                    .into(binding.ivImage)
+            }
         }
-    }
-
 
 }

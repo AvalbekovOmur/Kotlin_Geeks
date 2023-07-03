@@ -19,7 +19,7 @@ class OnBoardingAdapter(private val onClick: () ->Unit) : Adapter<OnBoardingAdap
     )
 
     inner class  OnBoardingViewHolder(private  val binding: ItemOnboardingBinding):ViewHolder(binding.root){
-        fun bind (onBoarding: OnBoarding){
+        fun onBind (onBoarding: OnBoarding){
             binding.tvTitle.text = onBoarding.title
             binding.tvDescription.text = onBoarding.description
             Glide.with(binding.imageView).load(onBoarding.image).into(binding.imageView)
@@ -40,7 +40,7 @@ class OnBoardingAdapter(private val onClick: () ->Unit) : Adapter<OnBoardingAdap
     }
 
     override fun onBindViewHolder(holder: OnBoardingViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.onBind(list[position])
     }
 
     override fun getItemCount(): Int = list.size

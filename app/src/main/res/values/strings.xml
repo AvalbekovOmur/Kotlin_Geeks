@@ -10,4 +10,8 @@
     <string name="save">Save</string>
     <string name="profile">Profile</string>
     <string name="write_your_name">Write your name</string>
+    <string name="yes" />
+    <string name="no" />
+    <string name="delete_message" />
+    <string name="update">\n\n</string>
 </resources>

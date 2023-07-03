@@ -9,6 +9,6 @@ import java.io.Serializable
 data class Task(
     @PrimaryKey(autoGenerate = true)
     val id : Int? = null,
-    val title: String? = null,
-    val description: String? = null
+    var title: String? = null,
+    var description: String? = null
 ):Serializable
