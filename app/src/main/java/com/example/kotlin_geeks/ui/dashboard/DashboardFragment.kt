@@ -1,14 +1,21 @@
 package com.example.kotlin_geeks.ui.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.kotlin_geeks.data.Car
 import com.example.kotlin_geeks.databinding.FragmentDashboardBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class DashboardFragment : Fragment() {
 
+    private val db = Firebase.firestore
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
 
@@ -19,6 +26,32 @@ class DashboardFragment : Fragment() {
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.BtnSave.setOnClickListener{
+            setData()
+        }
+
+    }
+
+    private fun setData() {
+        val data = Car(
+            label = binding.EditTextLabel.text.toString(),
+            model = binding.EditTextModel.text.toString()
+        )
+        db.collection(FirebaseAuth.getInstance().currentUser?.uid.toString())
+            .document()
+            .set(data)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(), "Успешно сохранено!", Toast.LENGTH_SHORT).show()
+                binding.EditTextLabel.text.clear()
+                binding.EditTextModel.text.clear()
+            }.addOnFailureListener{
+                Log.e("ololo", "setData: $it")
+            }
     }
 
     override fun onDestroyView() {

@@ -1,6 +1,7 @@
 package com.example.kotlin_geeks
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kotlin_geeks.data.local.Pref
 import com.example.kotlin_geeks.databinding.ActivityMainBinding
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +39,13 @@ class MainActivity : AppCompatActivity() {
 
         setAppBar()
         setBottomNavVisibility()
+
+        FirebaseMessaging.getInstance().token.addOnSuccessListener {
+            Log.e("ololo", "onCreate: $it")
+        }.addOnFailureListener {
+            Log.e("ololo", "onCreate: $it")
+        }
+
     }
     private fun setAppBar() {
         val appBarConfiguration = AppBarConfiguration(
